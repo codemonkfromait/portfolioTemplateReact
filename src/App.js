@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navbar from "./Navbar";
+import Headsec from "./Headsec";
+import Portfolio from "./Portfolio";
+import Contact from "./Contact";
+import Footer from "./Footer";
+import Copyright from "./Copyright";
+import About from "./About";
+import $ from "jquery";
 
-function App() {
+const App = () => {
+  $(window).on("scroll", function () {
+    if ($(window).scrollTop()) {
+      $("#mainNav").addClass("navbar-shrink");
+    } else {
+      $("#mainNav").removeClass("navbar-shrink");
+    }
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Headsec />
+      <Portfolio />
+      <About />
+      <Contact />
+      <Footer />
+      <Copyright />
     </div>
   );
-}
+};
 
 export default App;
